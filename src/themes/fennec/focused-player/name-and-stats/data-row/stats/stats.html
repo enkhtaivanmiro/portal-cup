@@ -1,6 +1,25 @@
-<div class="stats">
-	<Stat type="kills" />
-	<Stat type="assists" />
-	<Stat type="deaths" />
-	<Stat type="adr" />
+<div class="focused-player-content">
+	<div class="ammo-stats">
+		<div class="stats">
+			<Stat type="kills" />
+			<Stat type="assists" />
+			<Stat type="deaths" />
+			<Stat type="adr" />
+		</div>
+
+		<Transition name="fast">
+			<div v-if="weapon" class="ammo-wrapper">
+			<div :class="['ammo', colorClass]">
+				<div :class="['inner', colorClass]">
+				<div class="clip">
+					<Digits :value="weapon.ammoClip" digits="3" />
+				</div>
+				<div class="reserve">
+					/{{ weapon.ammoReserve }}
+				</div>
+				</div>
+			</div>
+			</div>
+		</Transition>
+  </div>
 </div>

@@ -1,21 +1,37 @@
-.focused-player {
-	position: fixed;
-	bottom: var(--viewport-margin-bottom);
-	left: calc((100% - var(--focused-player-width)) / 2);
-	right: calc((100% - var(--focused-player-width)) / 2);
+.focused-player-card {
+  position: fixed;
+  bottom: var(--viewport-margin-bottom);
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  display: flex;
+  flex-direction: column;      /* stack content + overlay vertically */
+  align-items: center;         /* center content horizontally */
 
-	display: grid;
-	grid-template-columns: 16fr 35fr 16fr;
-
-	filter: var(--filter-drop-shadow);
+  border-radius: 8px;          /* rounded corners */
+  padding: 12px 16px;          /* spacing inside the card */
+  filter: var(--filter-drop-shadow);
+  z-index: 1000;               /* stay on top */
+  max-width: var(--focused-player-width);
+  width: 50%;
+  gap: 8px;                    /* spacing between content and overlay */
 }
 
-.focused-player.--has-overlay-bottom {
-	bottom: var(--focused-player-margin-bottom-with-overlay-bottom);
+/* If overlay exists, move the card up slightly */
+.focused-player-card.--has-overlay-bottom {
+  bottom: var(--focused-player-margin-bottom-with-overlay-bottom);
 }
 
+/* Inner content layout */
+.focused-player-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* spacing between health, name, ammo */
+  width: 100%;
+}
+
+/* Overlay image at the bottom */
 img.overlay-bottom {
-	grid-area: 2/2;
-	width: calc(100% - var(--focused-player-overlay-bottom-horizontal-spacing) * 2);
-	margin: 0 var(--focused-player-overlay-bottom-horizontal-spacing);
+  width: calc(100% - var(--focused-player-overlay-bottom-horizontal-spacing) * 2);
+  margin: 0 var(--focused-player-overlay-bottom-horizontal-spacing);
+  border-radius: 4px;
 }

@@ -1,11 +1,22 @@
 <Transition mode="out-in">
-	<div v-if="isActive" :class="['focused-player', { '--has-overlay-bottom': !! overlayBottomImageUrl }]">
-		<FocusedPlayerHealthAndArmor />
-		<FocusedPlayerNameAndStats />
-		<FocusedPlayerAmmo />
+  <div
+    v-if="isActive"
+    :class="['focused-player-card', { '--has-overlay-bottom': !!overlayBottomImageUrl }]"
+  >
+    <!-- Main info block -->
+    <div class="focused-player-content">
+      <FocusedPlayerHealthAndArmor />
+      <FocusedPlayerNameAndStats />
+    </div>
 
-		<img v-if="overlayBottomImageUrl" class="overlay-bottom" :src="overlayBottomImageUrl" alt="">
-	</div>
+    <!-- Optional overlay image at the bottom -->
+    <img
+      v-if="overlayBottomImageUrl"
+      class="overlay-bottom"
+      :src="overlayBottomImageUrl"
+      alt=""
+    />
+  </div>
 
-	<div v-else-if="$round.isFreezetime" class="freezetime-placeholder"></div>
+  <div v-else-if="$round.isFreezetime" class="freezetime-placeholder"></div>
 </Transition>

@@ -4,6 +4,11 @@
 	display: grid;
 	background: var(--black-30);
 	z-index: -1;
+
+	
+    width: 150px;  /* smaller width */
+    height: 10px;  /* smaller height */
+    border-radius: 4px; /* optional: rounded edges */
 }
 
 .damage-taken,
@@ -14,6 +19,8 @@
 
 .health {
 	z-index: 1;
+	height: 10px;
+
 }
 
 .damage-taken.--left,
