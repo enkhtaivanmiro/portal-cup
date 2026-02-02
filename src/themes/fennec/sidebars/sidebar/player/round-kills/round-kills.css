@@ -1,19 +1,30 @@
 .round-kills {
 	grid-area: round-kills;
-
 	display: flex;
 	align-items: center;
+
+	background-color: white;
+	width: 20px;
+	height: 20px;
+	font-size: 1.6rem;
+	justify-content: center;
+	border-radius: 5px;
 }
 
+/* 
 .round-kills.--right {
 	justify-content: flex-end;
 }
 
 img.label {
-	height: 1.5rem;
 	margin-right: 0.5rem;
 }
 
 .value {
 	font-size: 1.6rem;
+} */
+
+.filter-black {
+	filter: brightness(0%);
+	/* Makes the image completely black */
 }

@@ -4,8 +4,9 @@
 	display: flex;
 	align-items: center;
 
-	padding: 0.5rem;
+	padding-left: 0.5rem;
 	font-size: 1.5rem;
+	font-weight: bold;
 }
 
 .label {
@@ -27,4 +28,61 @@
 
 .v-enter-active {
 	transition-delay: var(--fade-fast-duration);
+}
+
+.kills img {
+	filter: brightness(0) invert(1);
+}
+
+.count-wrapper.--ct {
+	background: var(--counter-terrorists-fill);
+	display: flex;
+	height: 20px;
+	width: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.count-wrapper.--t {
+	background: var(--terrorists-fill);
+	display: flex;
+	height: 20px;
+	width: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Image wrapper (icon background) */
+.img-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 20px;
+	width: 20px;
+	position: relative;
+}
+
+/* Pseudo-element for semi-transparent background */
+.img-wrapper.--ct::before,
+.img-wrapper.--t::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	z-index: -1;
+	/* behind the icon */
+	opacity: 0.3;
+}
+
+.img-wrapper.--ct::before {
+	background: var(--counter-terrorists-fill);
+}
+
+.img-wrapper.--t::before {
+	background: var(--terrorists-fill);
+}
+
+/* Make sure the icon itself stays on top */
+.img-wrapper img {
+	z-index: 1;
 }

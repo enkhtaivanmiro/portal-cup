@@ -1,7 +1,6 @@
 .player-wrapper {
   display: flex;
-  flex-direction: row;      /* horizontal row of players */
-  gap: 8px;                 /* space between player blocks */
+  gap: 8px;
   width: 100%;
   justify-content: center;
 }
@@ -16,109 +15,139 @@
 
 .player-unit {
   display: flex;
-  flex-direction: column;  
-  gap: 4px;
-  justify-content: end;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
+/* PLAYER CARD */
 .player {
-  display: flex;
-  flex-direction: column;  /* stack info vertically inside the block */
-  background: var(--black-60);
-  filter: var(--filter-drop-shadow);
-  font-size: 1.4rem;
-  padding: 6px 8px;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 4px;
+  min-width: 100px;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.65);
   border-radius: 4px;
-  min-width: 90px;          /* width of the block */
-  gap: 4px;                  /* spacing inside the block */
   position: relative;
+  overflow: hidden;
+  font-family: Inter, Roboto, sans-serif;
+  font-size: 1.2rem;
 }
 
+/* DEAD STATE */
 .player.dead {
-  opacity: 0.5;
+  opacity: 0.4;
   filter: grayscale(100%);
 }
 
-/* Highlight focused player */
-.FocusedPlayerHighlight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-  border-radius: 4px;
+/* TOP SECTION */
+.top-wrapper {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 4px;
+  align-items: center;
 }
 
-/* Align small stats/icons horizontally inside block */
-.player > * {
+.player-image img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.top-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* NAME BAR */
+.name-kills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* T side red */
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.Name {
+  max-width: 65px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.hp-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  padding: 0;
+}
+
+.Kills,
+.Deaths,
+.Money {
   display: flex;
   align-items: center;
+  gap: 3px;
+}
+
+/* WEAPONS */
+.weapons {
+  display: flex;
+  justify-content: center;
   gap: 4px;
 }
 
-/* Numeric stats right-aligned */
-.Kills, .Deaths, .Adr, .Money, .RoundMoneySpent {
-  text-align: right;
-  min-width: 28px;
+.weapons img,
+.Grenades img {
+  height: 12px;
+  opacity: 0.9;
 }
 
-.Equipment {
-  display: flex !important;    
-  justify-content: center !important; 
-  width: 100%;                
-  gap: 4px;                     
-}
-
-.Grenades {
-  display: flex !important;    
-  justify-content: center !important; 
-  width: 100%;                
-  gap: 4px;                     
-}
-
-.weapons {
-	display: flex;
-	justify-content: center;
-}
-.healtharea {
-  position: relative; 
-  width: 100%;         
-  height: auto;      
-}
-
-.healtharea > Health {
+/* HP BAR BACKGROUND */
+/* .healtharea {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 2;        
-}
+  height: 6px;
+} */
 
-.healtharea > HealthBar {
-  position: relative;  
+/* .HealthBar {
   width: 100%;
-  z-index: 1;
-}
-.namearea {
-	display: flex;
-	justify-content: center;
-  position: relative; 
-  width: 100%;        
-  height: auto;       
-}
+  height: 100%;
+  background: linear-gradient(90deg,
+      #00ff87,
+      #ffe600);
+} */
 
-.namearea > Name {
+/* FOCUSED PLAYER */
+.FocusedPlayerHighlight {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;         
+  inset: 0;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
 }
 
-.namearea > ObserverSlot {
-  position: relative; 
-  width: 100%;
-  z-index: 1;
+.Roundkills {
+  background-color: white;
+  color: black;
+
+}
+
+.kill-death {
+  display: flex;
+  padding: 0;
 }

@@ -1,32 +1,90 @@
 <div :class="['player-wrapper', positionClass]">
   <div class="player-unit">
+    <div :class="['player', positionClass, { dead: player.dead }]">
 
-      <RoundKills :player="player" :position="position" class="Roundkills"/>
+      <!-- TOP: Portrait + equipment -->
+      <div class="top-wrapper">
+        <div class="player-image">
+          <img :src="player.image" alt="" />
+        </div>
 
-    <div :class="['player', positionClass]">
-      <FocusedPlayerHighlight :player="player" :position="position" />
-      <!-- <DeadIcon :player="player" :position="position" /> -->
-      <Money :player="player" :position="position" />
-	  <div class="namearea">
-		<!-- <ObserverSlot :player="player" :position="position" /> -->
-		<Name :player="player" :position="position" />
-	  </div>
-      <Equipment :player="player" :position="position" class="Equipment"/>
-      <RoundMoneySpent :player="player" :position="position" />
-      <Kills :player="player" :position="position" />
-      <Deaths :player="player" :position="position" />
-      <Adr :player="player" :position="position" />
-      <Taser :player="player" :position="position" />
-      <Grenades :player="player" :position="position" class="Grenades"/>
-	  <div class="weapons">
-		<Primary :player="player" :position="position" />
-		<Secondary :player="player" :position="position" />
-	  </div>
-	  <div class="healtharea">
-		<Health :player="player" :position="position" />
-		<HealthBar :player="player" :position="position" />
-	  </div>
+        <div class="top-right">
+          <Equipment :player="player" :position="position" class="Equipment" />
+          <Health :player="player" :position="position" />
+        </div>
+      </div>
+
+      <!-- NAME BAR -->
+      <div class="name-kills">
+        <RoundKills :player="player" :position="position" class="Roundkills" />
+        <Name :player="player" :position="position" />
+      </div>
+      <!-- HP BAR BACKGROUND -->
+      <div class="healtharea">
+        <HealthBar :player="player" :position="position" />
+      </div>
+
+      <!-- STATS -->
+      <div class="stats">
+        <div class="kill-death">
+          <Kills :player="player" :position="position" />
+          <Deaths :player="player" :position="position" />
+        </div>
+        <Money :player="player" :position="position" />
+      </div>
+
+      <!-- WEAPONS -->
+      <div class="weapons">
+        <Primary :player="player" :position="position" />
+        <Secondary :player="player" :position="position" />
+        <Grenades :player="player" :position="position" class="Grenades" />
+      </div>
+
+      <!-- FOCUS -->
+      <FocusedPlayerHighlight v-if="player.focused" :player="player" :position="position" />
+
+
     </div>
-	<AdditionalStats :player="player" :position="position" />
+
+    <AdditionalStats :player="player" :position="position" />
   </div>
 </div>
+
+<!-- <div :class="['player-wrapper', positionClass]">
+  <div class="player-unit">
+    <div :class="['player', positionClass]">
+
+      <div class="top-wrapper">
+        <div class="top-right">
+          <Equipment :player="player" :position="position" class="Equipment" />
+          <Health :player="player" :position="position" />
+        </div>
+
+      </div>
+      <div class="stats">
+        <Kills :player="player" :position="position" />
+        <Deaths :player="player" :position="position" />
+        <Money :player="player" :position="position" />
+      </div>
+      <div>
+        <Primary :player="player" :position="position" />
+        <Secondary :player="player" :position="position" />
+        <Grenades :player="player" :position="position" class="Grenades" />
+      </div>
+      <FocusedPlayerHighlight :player="player" :position="position" />
+      <DeadIcon :player="player" :position="position" />
+      <div class="namearea">
+        <ObserverSlot :player="player" :position="position" />
+      </div>
+      <RoundMoneySpent :player="player" :position="position" />
+      <Adr :player="player" :position="position" />
+      <Taser :player="player" :position="position" />
+
+      <div class="healtharea">
+        <HealthBar :player="player" :position="position" />
+      </div>
+    </div>
+    <AdditionalStats :player="player" :position="position" />
+  </div>
+</div>
+background is HP HealthBar -->

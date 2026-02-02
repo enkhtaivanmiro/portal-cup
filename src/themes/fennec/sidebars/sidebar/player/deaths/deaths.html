@@ -1,6 +1,12 @@
 <Transition>
-	<div v-if="! $round.isFreezetime" class="deaths">
-		<div :class="['label', colorClass]">D</div>
-		<Digits digits="2" :value="player.deaths" />
+	<div v-if="!$round.isFreezetime" class="deaths">
+		<!-- Icon -->
+		<div :class="['img-wrapper', colorClass]">
+			<img src="/hud/img/icons/round-kills.svg" height="15" width="15" />
+		</div>
+		<!-- Count -->
+		<div :class="['count-wrapper', colorClass]">
+			<Digits digits="2" :value="player.kills" />
+		</div>
 	</div>
 </Transition>
