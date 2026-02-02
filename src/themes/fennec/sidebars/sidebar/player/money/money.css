@@ -5,8 +5,20 @@
 	align-self: center;
 	font-size: 1.5rem;
 	color: var(--sidebar-player-money-text);
+	font-weight: bold;
+	width: 100%;
+	text-align: end;
 }
 
 .money.--right {
 	text-align: right;
+}
+
+.money.--ct {
+	background: var(--counter-terrorists-fill-background);
+}
+
+.money.--t {
+	background: var(--terrorists-fill-background);
+	z-index: 20;
 }
