@@ -17,6 +17,7 @@ import RoundKills from '/hud/sidebars/sidebar/player/round-kills/round-kills.vue
 import RoundMoneySpent from '/hud/sidebars/sidebar/player/round-money-spent/round-money-spent.vue'
 import Secondary from '/hud/sidebars/sidebar/player/secondary/secondary.vue'
 import Taser from '/hud/sidebars/sidebar/player/taser/taser.vue'
+import PlayerImage from './player-img/player-img.vue'
 
 export default {
 	props: [
@@ -43,13 +44,14 @@ export default {
 		RoundMoneySpent,
 		Secondary,
 		Taser,
+		PlayerImage
 	},
 
 	computed: {
 		positionClass,
 
 		isBombActive() {
-			return !! this.player?.bomb?.isActive
+			return !!this.player?.bomb?.isActive
 		},
 	},
 }

@@ -1,52 +1,58 @@
 <div :class="['player-wrapper', positionClass]">
   <div class="player-unit">
-    <div :class="['player', positionClass, { dead: player.dead }]">
+    <div>
 
       <!-- TOP: Portrait + equipment -->
-      <div class="top-wrapper">
-        <div class="player-image">
-          <img :src="player.image" alt="" />
+      <div :class="['player', positionClass, { dead: player.dead }]">
+
+        <div class="top-wrapper">
+          <!-- HealthBar as background -->
+          <div class="healthbar-bg">
+            <HealthBar :player="player" :position="position" />
+          </div>
+
+          <!-- Player portrait -->
+          <PlayerImage :steam64Id="player.steam64Id" :player="player" class="player-image" />
+
+          <!-- Top-right info -->
+          <div class="top-right">
+            <Health :player="player" :position="position" />
+            <Equipment :player="player" :position="position" class="Equipment" />
+          </div>
         </div>
 
-        <div class="top-right">
-          <Equipment :player="player" :position="position" class="Equipment" />
-          <Health :player="player" :position="position" />
+        <div class="mid">
+          <!-- NAME BAR -->
+          <div class="name-kills">
+            <RoundKills :player="player" :position="position" class="Roundkills" />
+            <Name :player="player" :position="position" />
+            <!-- <PplayerImg :steamid="player.steamid" /> -->
+          </div>
+
+          <!-- STATS -->
+          <div class="stats">
+            <div class="kill-death">
+              <Kills :player="player" :position="position" />
+              <Deaths :player="player" :position="position" />
+            </div>
+            <Money :player="player" :position="position" />
+          </div>
+
+          <!-- WEAPONS -->
+          <div class="weapons">
+            <Primary :player="player" :position="position" />
+            <Secondary :player="player" :position="position" />
+            <Grenades :player="player" :position="position" class="Grenades" />
+          </div>
+
+          <!-- FOCUS -->
+          <FocusedPlayerHighlight v-if="player.focused" :player="player" :position="position" />
+
         </div>
       </div>
 
-      <!-- NAME BAR -->
-      <div class="name-kills">
-        <RoundKills :player="player" :position="position" class="Roundkills" />
-        <Name :player="player" :position="position" />
-      </div>
-      <!-- HP BAR BACKGROUND -->
-      <div class="healtharea">
-        <HealthBar :player="player" :position="position" />
-      </div>
-
-      <!-- STATS -->
-      <div class="stats">
-        <div class="kill-death">
-          <Kills :player="player" :position="position" />
-          <Deaths :player="player" :position="position" />
-        </div>
-        <Money :player="player" :position="position" />
-      </div>
-
-      <!-- WEAPONS -->
-      <div class="weapons">
-        <Primary :player="player" :position="position" />
-        <Secondary :player="player" :position="position" />
-        <Grenades :player="player" :position="position" class="Grenades" />
-      </div>
-
-      <!-- FOCUS -->
-      <FocusedPlayerHighlight v-if="player.focused" :player="player" :position="position" />
-
-
+      <!-- <AdditionalStats :player="player" :position="position" /> -->
     </div>
-
-    <AdditionalStats :player="player" :position="position" />
   </div>
 </div>
 

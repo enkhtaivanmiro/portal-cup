@@ -12,16 +12,18 @@ export default {
 	data() {
 		return {
 			overlayBottomImageUrl: null,
+			facecamImageUrl: null,
 		}
 	},
 
 	mounted() {
 		this.setOverlayBottomImageUrl()
+		this.setFacecamImageUrl()
 	},
 
 	computed: {
 		isActive() {
-			return ! this.$round.isFreezetime && this.$players.focused
+			return !this.$round.isFreezetime && this.$players.focused
 		},
 	},
 
@@ -29,18 +31,39 @@ export default {
 		async setOverlayBottomImageUrl() {
 			let fetchResponse = await fetch('/hud/overlay-images/focused-player-bottom.webp').catch(() => null)
 
-			if (! fetchResponse?.ok) {
+			if (!fetchResponse?.ok) {
 				fetchResponse = await fetch('/hud/overlay-images/focused-player-bottom.png').catch(() => null)
 			}
 
-			if (! fetchResponse?.ok) {
+			if (!fetchResponse?.ok) {
 				fetchResponse = await fetch('/hud/overlay-images/focused-player-bottom.gif').catch(() => null)
 			}
 
-			if (! fetchResponse?.ok) return
+			if (!fetchResponse?.ok) return
 
 			const blob = await fetchResponse.blob()
 			this.overlayBottomImageUrl = URL.createObjectURL(blob)
+		},
+
+		async setFacecamImageUrl() {
+			let fetchResponse = await fetch('/hud/overlay-images/facecam.webp').catch(() => null)
+
+			if (!fetchResponse?.ok) {
+				fetchResponse = await fetch('/hud/overlay-images/facecam.png').catch(() => null)
+			}
+
+			if (!fetchResponse?.ok) {
+				fetchResponse = await fetch('/hud/overlay-images/facecam.gif').catch(() => null)
+			}
+
+			if (!fetchResponse?.ok) {
+				fetchResponse = await fetch('/hud/overlay-images/facecam.jpg').catch(() => null)
+			}
+
+			if (!fetchResponse?.ok) return
+
+			const blob = await fetchResponse.blob()
+			this.facecamImageUrl = URL.createObjectURL(blob)
 		},
 	},
 }

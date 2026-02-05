@@ -1,13 +1,13 @@
 <Transition name="fast">
-	<div v-if="weapon" class="wrapper">
+	<div class="wrapper">
 		<div :class="['ammo', colorClass]">
 			<div :class="['inner', colorClass]">
 				<div class="clip">
-					<Digits :value="weapon.ammoClip" digits="3"></Digits>
+					<Digits :value="weapon?.ammoClip ?? 0" digits="3" />
 				</div>
 
 				<div class="reserve">
-					/{{ weapon.ammoReserve }}
+					/{{ weapon?.ammoReserve ?? 0 }}
 				</div>
 			</div>
 		</div>

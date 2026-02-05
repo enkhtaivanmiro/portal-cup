@@ -1,0 +1,52 @@
+:root {
+    --font-primary: 'Quantico', sans-serif;
+
+    /* Blast Colors */
+    --color-ct-main: #0088cc;
+    --color-ct-dark: #004466;
+    --color-t-main: #d39e00;
+    /* Yellow/Orange */
+    --color-t-dark: #664c00;
+
+    --color-bg-dark: rgba(15, 15, 20, 0.92);
+    --color-bg-darker: rgba(5, 5, 5, 0.95);
+
+    --color-text-white: #ffffff;
+    --color-text-muted: #aaaaaa;
+
+    /* Design Tokens */
+    --blast-slope: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+    --blast-slope-reverse: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+}
+
+@font-face {
+    font-family: 'Quantico';
+    src: url('/assets/fonts/Quantico-Regular.ttf');
+    /* Ensure this exists or use web font if available */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    overflow: hidden;
+    user-select: none;
+    color: var(--color-text-white);
+    text-transform: uppercase;
+}
+
+#hud {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    /* Background for testing - remove in prod */
+    /* background: url('https://i.ytimg.com/vi/u4vC0yR0tZA/maxresdefault.jpg') no-repeat center center; background-size: cover; */
+}
+
+h1,
+h2,
+h3,
+div,
+span {
+    box-sizing: border-box;
+}

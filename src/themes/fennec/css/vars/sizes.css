@@ -1,7 +1,9 @@
 :root {
 	/* Scale Factor (base unit for everything) */
-	--base-scale-factor: 0.925925926vh; /* approximately 10px on 1080p */
-	--scale-factor: var(--base-scale-factor); /* set by JavaScript to the rounded pixel value of --base-scale-factor (because CSS sometimes breaks at weird fractional pixels) */
+	--base-scale-factor: 0.925925926vh;
+	/* approximately 10px on 1080p */
+	--scale-factor: var(--base-scale-factor);
+	/* set by JavaScript to the rounded pixel value of --base-scale-factor (because CSS sometimes breaks at weird fractional pixels) */
 
 	/* Viewport Margin */
 	--viewport-margin-x: 2rem;
@@ -13,8 +15,8 @@
 	--viewport-margin-top: var(--viewport-margin-y);
 
 	/* Focused Player */
-	--focused-player-width: 50%;
-	--focused-player-icon-height: 2rem;
+	--focused-player-width: 15%;
+	--focused-player-icon-height: 1.5rem;
 	--focused-player-overlay-bottom-horizontal-spacing: 1.7rem;
 	--focused-player-margin-bottom-with-overlay-bottom: 0;
 
@@ -28,11 +30,13 @@
 	--top-bar-half-row-height: calc(var(--top-bar-row-height) / 2);
 
 	/* Series Graph */
-	--series-graph-height: 17.3rem; /* NB! This value is purely descriptive, and does not change the height of the series graph */
+	--series-graph-height: 17.3rem;
+	/* NB! This value is purely descriptive, and does not change the height of the series graph */
 	--series-graph-margin-to-sidebars: var(--viewport-margin-y);
 
 	/* Round Graph */
-	--round-graph-height: 5.56rem; /* NB! This value is purely descriptive, and does not change the height of the series graph */
+	--round-graph-height: 5.56rem;
+	/* NB! This value is purely descriptive, and does not change the height of the series graph */
 	--round-graph-margin-to-sidebars: var(--series-graph-margin-to-sidebars);
 
 	/* Radar */
@@ -44,7 +48,7 @@
 	--sidebar-width: calc(var(--sidebar-player-width) + var(--sidebar-player-focused-player-highlight-width) + var(--sidebar-player-additional-stats-width));
 	--sidebar-margin-to-focused-player: var(--viewport-margin-x);
 
-	--sidebar-vertical-spacing: 0.5rem;
+	--sidebar-vertical-spacing: 0.1rem;
 	--sidebar-overlay-vertical-spacing: var(--sidebar-vertical-spacing);
 	--sidebar-left-overlay-vertical-spacing: var(--sidebar-overlay-vertical-spacing);
 	--sidebar-right-overlay-vertical-spacing: var(--sidebar-overlay-vertical-spacing);
@@ -53,18 +57,7 @@
 	--sidebar-team-equipment-width: var(--sidebar-player-width);
 
 	/* Sidebar Players */
-	--sidebar-player-width: calc(
-		var(--sidebar-deaths-width)
-		+ var(--sidebar-grenades-half-width)
-		+ var(--sidebar-health-width)
-		+ var(--sidebar-kills-width)
-		+ var(--sidebar-money-width)
-		+ var(--sidebar-observer-slot-width)
-		+ var(--sidebar-primary-and-secondary-width)
-		+ var(--sidebar-round-kills-width)
-		+ var(--sidebar-start-and-end-width) * 2
-		+ var(--sidebar-taser-width)
-	);
+	--sidebar-player-width: calc(var(--sidebar-deaths-width) + var(--sidebar-grenades-half-width) + var(--sidebar-health-width) + var(--sidebar-kills-width) + var(--sidebar-money-width) + var(--sidebar-observer-slot-width) + var(--sidebar-primary-and-secondary-width) + var(--sidebar-round-kills-width) + var(--sidebar-start-and-end-width) * 2 + var(--sidebar-taser-width));
 
 	--sidebar-player-focused-player-highlight-width: 0.5rem;
 	--sidebar-player-additional-stats-width: 14rem;

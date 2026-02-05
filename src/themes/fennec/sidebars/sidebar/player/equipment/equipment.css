@@ -7,9 +7,11 @@
 }
 
 .equipment.--left {
-	grid-template-areas: 'armor bomb-or-defuser';
+	grid-template-areas: 'bomb-or-defuser armor';
+
 }
 
 .equipment.--right {
 	grid-template-areas: 'bomb-or-defuser armor';
+
 }

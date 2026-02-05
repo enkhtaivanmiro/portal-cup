@@ -4,6 +4,7 @@
 	width: var(--sidebar-width);
 
 	transition: transform var(--fade-slow-duration) ease;
+	width: 42vw;
 }
 
 .sidebar.--left {
@@ -35,8 +36,9 @@ img.overlay.--right {
 	margin-left: auto;
 	margin-bottom: var(--sidebar-right-overlay-vertical-spacing);
 }
+
 .players-row {
-  display: flex;           
-  flex-direction: row;     
-  gap: 2px;               
+	display: flex;
+	flex-direction: row;
+	gap: 2px;
 }

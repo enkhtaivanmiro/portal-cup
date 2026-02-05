@@ -24,27 +24,20 @@
 
 .left {
 	grid-area: left;
-	transform: skewX(20deg) translateX(0.425rem);
 }
 
-.left .inner {
-	transform: skewX(-20deg);
-}
+.left .inner {}
 
 .center {
 	grid-area: center;
 
 	background: var(--white-75);
-	clip-path: polygon(0 0, 100% 0, calc(100% - 0.85rem) 100%, 0.85rem 100%);
 	font-weight: 700;
 	letter-spacing: 0.2em;
 }
 
 .right {
 	grid-area: right;
-	transform: skewX(-20deg) translateX(-0.425rem);
 }
 
-.right .inner {
-	transform: skewX(20deg);
-}
+.right .inner {}

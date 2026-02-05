@@ -12,9 +12,16 @@
 	display: flex;
 	align-items: flex-end;
 
-	transition: transform var(--fade-slow-duration) ease;
+	max-height: 200px;
+	/* set to real max height */
+	overflow: hidden;
+
+	transition:
+		max-height var(--fade-slow-duration) ease,
+		transform var(--fade-slow-duration) ease;
 }
 
 .series-graph:not(.--active) {
+	max-height: 0;
 	transform: translateY(101%);
 }

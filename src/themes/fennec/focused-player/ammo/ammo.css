@@ -5,10 +5,20 @@
 
 .ammo {
 	display: flex;
-	flex: 1;
-	font-size: 3rem;
-	min-width: fit-content;
-	max-width: 8.25ch;
+	flex: 0 0 auto;
+	font-size: 1.5rem;
+	width: 8.25ch;
+	/* you already tuned this — keep it */
+	align-items: flex-end;
+}
+
+
+.clip {
+	width: 3ch;
+	/* exactly 3 digits */
+	text-align: right;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .inner {
@@ -16,13 +26,13 @@
 	padding: 0.75rem 0.5rem;
 
 	display: flex;
-	align-items: flex-end;
+	align-items: baseline;
 
 	transition: background-color var(--fade-fast-duration) ease;
 }
 
 .reserve {
-	font-size: 2rem;
+	font-size: 1rem;
 	transform: translateY(-2px);
 	margin-left: 0.5rem;
 }
@@ -30,7 +40,7 @@
 .ammo::before,
 .ammo::after {
 	content: '';
-	width: 2rem;
+	width: 1rem;
 
 	transition: background-color var(--fade-fast-duration) ease;
 	z-index: -1;
@@ -47,11 +57,25 @@
 .inner.--ct,
 .ammo.--ct::before,
 .ammo.--ct::after {
-	background: var(--counter-terrorists-fill);
+	/* background: var(--counter-terrorists-fill); */
 }
 
 .inner.--t,
 .ammo.--t::before,
 .ammo.--t::after {
-	background: var(--terrorists-fill);
+	/* background: var(--terrorists-fill); */
+}
+
+.clip>* {
+	display: block;
+	line-height: 1;
+}
+
+.reserve {
+	width: 4ch;
+	/* "/999" max */
+	text-align: left;
+	font-size: 1rem;
+	transform: translateY(-2px);
+	margin-left: 0.5rem;
 }

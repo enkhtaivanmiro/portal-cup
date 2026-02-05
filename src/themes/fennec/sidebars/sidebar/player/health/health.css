@@ -1,8 +1,10 @@
 .health {
-	grid-area: health;
-	padding: 0.5rem;
-
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
+	justify-content: flex-end;
 	font-size: x-large;
+	margin-left: 0;
+	margin-right: 2px;
+	width: 50px;
+	font-family: 'Quantico', sans-serif;
 }

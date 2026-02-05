@@ -9,3 +9,12 @@
 img {
 	height: var(--focused-player-icon-height);
 }
+
+.health .health-number {
+	font-size: 0.5rem;
+
+}
+
+.health-number {
+	font-size: 10;
+}

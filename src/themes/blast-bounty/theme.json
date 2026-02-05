@@ -1,0 +1,10 @@
+{
+    "parent": "raw",
+    "options": {
+        "blast_bounty_enabled": {
+            "type": "boolean",
+            "label": "Enable Blast Bounty Theme",
+            "default": true
+        }
+    }
+}

@@ -6,7 +6,17 @@ import Team from '/hud/top-bar/team/team.vue'
 export default {
 	components: {
 		Center,
-		SeriesName,
 		Team,
+		SeriesName,
+
+	},
+
+	data() {
+		return {
+			$teams: [
+				{ name: 'HUNS', score: 0, },
+				{ name: 'TEST', score: 0, },
+			],
+		}
 	},
 }

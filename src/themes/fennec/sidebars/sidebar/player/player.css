@@ -3,6 +3,7 @@
   gap: 8px;
   width: 100%;
   justify-content: center;
+  height: 166px;
 }
 
 .player-wrapper.--left {
@@ -17,21 +18,35 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  height: 166px;
+
 }
 
-/* PLAYER CARD */
 .player {
   display: grid;
   grid-template-rows: auto auto auto auto;
   gap: 4px;
   min-width: 100px;
   padding: 4px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  font-family: Inter, Roboto, sans-serif;
+  font-size: 1.2rem;
+}
+
+.mid {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 4px;
+  min-width: 100px;
   background: rgba(0, 0, 0, 0.65);
   border-radius: 4px;
   position: relative;
   overflow: hidden;
   font-family: Inter, Roboto, sans-serif;
   font-size: 1.2rem;
+  height: 73.8px;
 }
 
 /* DEAD STATE */
@@ -40,32 +55,45 @@
   filter: grayscale(100%);
 }
 
-/* TOP SECTION */
 .top-wrapper {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 4px;
-  align-items: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 73.8px;
+  overflow: hidden;
+  /* keeps healthbar inside */
+  border-radius: 4px;
+  /* optional if you want rounded edges */
 }
 
-.player-image img {
-  width: 36px;
-  height: 36px;
-  object-fit: cover;
-  border-radius: 2px;
+/* HealthBar background */
+.healthbar-bg {
+  position: absolute;
+  inset: 0;
+  /* covers entire top-wrapper */
+  z-index: 0;
+}
+
+.player-image {
+  transform: translateX(-10px);
+  transform: translateY(6px);
+
 }
 
 .top-right {
+  gap: 2px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 40px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 /* NAME BAR */
 .name-kills {
   display: flex;
   justify-content: space-between;
+  height: 22px;
   align-items: center;
   /* T side red */
   color: #fff;
@@ -151,4 +179,20 @@
 .kill-death {
   display: flex;
   padding: 0;
+}
+
+.health {
+  margin-right: 0;
+  translate: calc();
+}
+
+.Equipment {
+  gap: 2px;
+}
+
+/* Keep player image and top-right info above HealthBar */
+.player-image,
+.top-right {
+  position: relative;
+  z-index: 1;
 }
