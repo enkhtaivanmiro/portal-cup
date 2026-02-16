@@ -28,3 +28,18 @@ img.logo.--right {
 	order: 1;
 	padding-left: var(--top-bar-team-logo-horizontal-spacing);
 }
+
+.side.--left {
+	background-color: var(--counter-terrorists-fill);
+	width: 10px;
+	height: 100%;
+}
+
+.side.--right {
+	background-color: var(--terrorists-fill);
+	width: 10px;
+	height: 42px;
+	position: absolute;
+	transform: translateX(187px);
+	justify-content: end;
+}

@@ -1,7 +1,6 @@
 .top-bar-team-panel-wrapper {
 	display: grid;
 	grid-template-rows: 1fr;
-
 	overflow: visible clip;
 	transition:
 		max-height var(--fade-default-duration) ease,
@@ -11,6 +10,7 @@
 .top-bar-team-panel-wrapper::before {
 	content: '';
 	display: block;
+
 }
 
 .top-bar-team-panel-wrapper.--ct::before {
@@ -23,6 +23,7 @@
 
 .top-bar-team-panel-wrapper.--left {
 	grid-template-columns: 2rem 1fr;
+
 }
 
 .top-bar-team-panel-wrapper.--right {
@@ -46,13 +47,6 @@
 	background: var(--black-50);
 }
 
-.top-bar-team-panel.--left .inner {
-	transform: skewX(-20deg);
-}
-
-.top-bar-team-panel.--right .inner {
-	transform: skewX(20deg);
-}
 
 .top-bar-team-panel-slide-enter-active .top-bar-team-panel,
 .top-bar-team-panel-slide-leave-active .top-bar-team-panel {
